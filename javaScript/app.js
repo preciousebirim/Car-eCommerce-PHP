@@ -62,32 +62,55 @@ function smoothScroll(target, duration){
     }
     requestAnimationFrame(animation);
 }
-var box1 = document.querySelector('.to-home'),
-	box4 = document.querySelector('.to-cars'),
-	box3 = document.querySelector('.to-login'),
-	box5 = document.querySelector('.to-my-thoughts'),
-	box6 = document.querySelector('.to-gallary'),
-	box2 = document.querySelector('.to-stories');
+const box1 = document.querySelector('.to-home'),
+	box4 = document.querySelector('.to-spare'),
+	box3 = document.querySelector('.to-rent'),
+	box5 = document.querySelector('.to-login'),
+	box2 = document.querySelector('.to-buy');
 
 box1.addEventListener('click', function(){
+	localStorage.setItem('activeTab', 'to-home');
 	smoothScroll('.head', 1000);
 });
-box4.addEventListener('click', function(){
-	smoothScroll('.cars', 1200);
+box2.addEventListener('click', function(){
+	localStorage.setItem('activeTab', 'to-buy');
+	smoothScroll('#to-buy', 1200);
 });
 box3.addEventListener('click', function(){
-	smoothScroll('.slideshow-container', 1200);
+	localStorage.setItem('activeTab', 'to-rent');
+	smoothScroll('#to-rent', 1200);
+});
+box4.addEventListener('click', function(){
+	localStorage.setItem('activeTab', 'to-spare');
+	smoothScroll('#to-spare', 1200);
 });
 box5.addEventListener('click', function(){
-	smoothScroll('.my-thoughts', 1200);
-});
-box6.addEventListener('click', function(){
-	smoothScroll('.gallary', 1200);
-});
-box2.addEventListener('click', function(){
-	smoothScroll('.stories', 1000);
+	localStorage.setItem('activeTab', 'to-login');
+	smoothScroll('#to-login', 1200);
 });
 
+const activeTab = localStorage.getItem('activeTab');
+switch(activeTab){
+	case 'to-home':
+		box1.dispatchEvent(new MouseEvent('click'));
+		break;
+	case 'to-buy':
+		box2.dispatchEvent(new MouseEvent('click'));
+		break;
+	case 'to-rent':
+		box3.dispatchEvent(new MouseEvent('click'));
+		break;
+	case 'to-spare':
+		box4.dispatchEvent(new MouseEvent('click'));
+		break;
+	case 'to-login':
+		box5.dispatchEvent(new MouseEvent('click'));
+		break;
+	default:
+		box1.dispatchEvent(new MouseEvent('click'));
+		break;
+}
+	
 // ACTIVE PAGE
 function deactive(){
 	box1.classList.remove('active-tab');
@@ -95,15 +118,12 @@ function deactive(){
 	box3.classList.remove('active-tab');
 	box4.classList.remove('active-tab');
 	box5.classList.remove('active-tab');
-	box6.classList.remove('active-tab');
 }
 var box1p = document.querySelector('.head').offsetTop,
-	box4p = document.querySelector('.cars').offsetTop,
-	box3p = document.querySelector('#login').offsetTop,
-	box5p = document.querySelector('.my-thoughts').offsetTop,
-	box6p = document.querySelector('.gallary').offsetTop,
-	box2p = document.querySelector('.stories').offsetTop;
-//console.log(box3p);
+	box4p = document.querySelector('.to-spare').offsetTop,
+	box5p = document.querySelector('.to-login').offsetTop,
+	box3p = document.querySelector('.to-rent').offsetTop,
+	box2p = document.querySelector('.to-buy').offsetTop;
 box1.classList.add('active-tab');
 window.onscroll = ()=>{
 	var height = window.pageYOffset;
@@ -138,22 +158,19 @@ window.onscroll = ()=>{
 		deactive();
 		box4.classList.add('active-tab');
 	}
-	else if(height >= box5p -200 && height < box6p -200){
+	else if(height >= box5p -200){
 		deactive();
 		box5.classList.add('active-tab');
 	}
-	else if(height >= box6p -200 && height < box6p + 500){
-		deactive();
-		box6.classList.add('active-tab');
-	}
+	
 }
 
 // STORIES
-const controls=document.querySelector(".stories-controls"),
-	container=document.querySelector(".stories-container"),
-	allBox=container.children,
-	containerWidth=container.offsetWidth,
-	margin=30;
+// const controls=document.querySelector(".stories-controls"),
+// 	container=document.querySelector(".stories-container"),
+// 	allBox=container.children,
+// 	containerWidth=container.offsetWidth,
+// 	margin=30;
 var items=0,
 	totalItems=0,
 	jumpSlideWidth=0;
@@ -170,7 +187,7 @@ function load(){
 		  items=responsive[i].breakPoint.item
 	  }
    }
-   start();
+  // start();
 }
 
 function start(){

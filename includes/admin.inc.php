@@ -39,19 +39,18 @@
 		header("Location: admin.php");
 	}
 
-	$story = new Story();
-	$stories = $story->get_story();
-	if(isset($_POST['add-story-submit'])){
-		$file = $_FILES['story-image'];
-		$result = $story->add_story($_POST['title'], $_POST['body'], $file, 1);
+	$marketer = new Marketer();
+	$marketers = $marketer->get_marketer();
+	if(isset($_POST['add-marketer-submit'])){
+		$marketer->marketer($_POST['name'], $_POST['email'], 1, $_POST['id'] ?? '');
+		header("Location: admin.php?tab=marketer");
+	}
+	if(isset($_GET['marketer_show'])){
+		$marketer->marketer_visibality($_GET['marketer_show']);
 		header("Location: admin.php");
 	}
-	if(isset($_GET['story_show'])){
-		$story->story_visibality($_GET['story_show']);
-		header("Location: admin.php");
-	}
-	if(isset($_GET['delete_story'])){
-		$story->delete_story($_GET['delete_story']);
+	if(isset($_GET['delete_marketer'])){
+		$marketer->delete_marketer($_GET['delete_story']);
 		header("Location: admin.php");
 	}
 

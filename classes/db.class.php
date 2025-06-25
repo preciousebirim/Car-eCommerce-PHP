@@ -1,9 +1,9 @@
 <?php
 	class DB{
-		private $dbservername = "localhost";
+		private $dbservername = "localhost:3307";
 		private $dbusername = "root";
-		private $dbpassword = "";
-		private $dbname = "car_dealership";
+		private $dbpassword = "letmecode";
+		private $dbname = "avdril";
 
 		protected function connect(){
 			$conn = new mysqli($this->dbservername, $this->dbusername, $this->dbpassword, $this->dbname);

@@ -10,8 +10,7 @@
 
 	$cart = new Cart();
 
-	$story = new Story();
-	$stories = $story->get_story();
+	
 
 	$product = new Product();
 	$products = $product->get_product();

@@ -138,9 +138,9 @@ nav ul li{
 .slideshow-container {
   background-color: #fff;
   position: absolute;
-  top: 100vh;
+  top: 0;
   width: 100%;
-  height: 100vh;
+  height: 100%;
 }
 .showcase .dot {
   cursor: pointer;
@@ -463,7 +463,7 @@ input[type='email'], input[type='password'], input[type='text']{
 /* PRODUCTS */
 .products{
 	display: inline-block;
-	height: 300px;
+	/* height: 300px; */
 }
 .products .item{
 	display: inline;

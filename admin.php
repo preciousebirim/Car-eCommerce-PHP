@@ -19,11 +19,11 @@
 			<nav>
 				<h3>ORDERS</h3>
 				<h3>USERS</h3>
-				<h3>STORIES</h3>
+				<h3>MARKETERS</h3>
 				<h3>MY THOUGHTS</h3>
-				<h3>CARS</h3>
+				<h3>TRUCKS</h3>
 				<h3>GALLARY</h3>
-                <h3>PRODUCTS</h3>
+                <h3>SPARE PARTS</h3>
 			</nav>
 		</header>
 		<?php
@@ -117,44 +117,44 @@
                 </div>
             </div>
 		</div>
-		<div id='tab' class="stories">
+		<div id='tab' class="marketers">
             <div class="container">
 				<div class="stories-flex-box">
 					<div class="stories-table">
-						<h1>Now on sell</h1>
+						<h1>Marketers</h1>
 						<table>
 							<thead>
 								<th>id</th>
-								<th>title</th>
+								<th>name</th>
+								<th>email</th>
                                 <th>Showing</th>
 								<th>Delete</th>
 							</thead>
 							<tbody>
 								<?php
-                                $i=1;
-                                while($row = $stories->fetch_assoc())
+                                while($row = $marketers->fetch_assoc())
                                 {
                                     echo '<tr>
-                                            <td>'.$i.'</td>
-                                            <td>'.$row['title'].'</td>
+                                            <td>'.$row['id'].'</td>
+                                            <td>'.$row['name'].'</td>
+                                            <td>'.$row['email'].'</td>
                                             <td id="show-hide-table">';
                                             if($row['showing'] == 1){
-                                                echo '<form action="admin.php?story_show='.$row['id'].'" method="post">
-                                                        <button class="story-btn" type="submit" name="story-show-submit"><i style="text-align: center; color: #0ac910;" class="fas fa-check"></i></button>
+                                                echo '<form action="admin.php?marketer_show='.$row['id'].'" method="post">
+                                                        <button class="story-btn" type="submit" name="marketer-show-submit"><i style="text-align: center; color: #0ac910;" class="fas fa-check"></i></button>
                                                     </form>';
                                             } else {
-                                                echo '<form action="admin.php?story_show='.$row['id'].'" method="post" >
-                                                        <button class="story-btn" type="submit" name="story-show-submit"><i style="text-align: center; color: #db3737;" class="fas fa-times"></i></button>
+                                                echo '<form action="admin.php?marketer_show='.$row['id'].'" method="post" >
+                                                        <button class="story-btn" type="submit" name="marketer-show-submit"><i style="text-align: center; color: #db3737;" class="fas fa-times"></i></button>
                                                     </form>';
                                             }
                                             echo '</td>
                                             <td>
-                                                <form action="admin.php?delete_story='.$row['id'].'" method="post">
+                                                <form action="admin.php?delete_marketer='.$row['id'].'" method="post">
                                                     <button class="story-delete-btn" type="submit" name="story-delete-submit"><i style="text-align: center; color: #db3737;" class="fas fa-trash-alt"></i></button>
                                                 </form>
                                             </td>
                                         </tr>';
-                                    $i++;
                                 }
 								?>
 							</tbody>
@@ -164,13 +164,12 @@
 						<h1>Add new</h1>
 						<div class="add">
 							<form action="admin.php" method="post" enctype="multipart/form-data">
-								<p>Title</p>
-								<input type="text" name="title">
-								<p>Body</p>
-								<textarea name="body"></textarea>
-								<p class="mini">Image</p>
-								<input type="file" name="story-image">
-								<input class="add-story-submit" type="submit" name="add-story-submit" value="Add">
+								<p>Name</p>
+								<input type="text" name="name">
+								<p>Email</p>
+								<input type="email" name="email">
+								<br><br>
+								<input class="add-marketer-submit" type="submit" name="add-marketer-submit" value="Add">
 							</form>
 						</div>
 					</div>
@@ -295,6 +294,18 @@
 								<input type="text" name="phone">
 								<p>Email</p>
 								<input type="text" name="email">
+								<p>For sell</p>
+								<input type="checkbox" name="forSell" value="sell" checked>
+								<p>For hire</p>
+								<input type="checkbox" name="forSell" value="rent">
+
+								<div id="hireOpts" style="display: none;">
+								<p>Hire condition</p>
+									<p>Hire price</p>
+								<input type="text" name="hirePrice">
+								<p>Hire Availabile</p>
+								<input type="checkbox" name="isAvailable" checked>
+								</div>
 
 								<div class="add-mini">
 									<div class="add-mini-1">
