@@ -10,11 +10,11 @@
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.7.2/css/all.min.css"  />
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="css/more.css">
-		<title>TARUNNO DRIVES | more</title>
+		<title>AVIDHAUL TRUCKERS | more</title>
 	</head>
 	<body>
 		<div class="nav">
-			<a href="javascript:history.back();"><i class="fas fa-angle-double-left"></i></a><h1>TARUNNO DRIVES</h1>
+			<a href="javascript:history.back();"><i class="fas fa-angle-double-left"></i></a><h1>AVIDHAUL TRUCKERS</h1>
 		</div>
 
         <h1 class="headling">More</h1>
@@ -85,7 +85,7 @@
 			  <a href="#"> <i class="fab fa-youtube"> <span></span> </i> </a>
 		  </div>
 		  <div class="credit">
-		  	<h1>TARUNNO DRIVES | Developed by mahadi hasan tarunno</h1>
+		  	<h1>AVIDHAUL TRUCKERS | Developed by mahadi hasan tarunno</h1>
 		  </div>
       </footer>
 	</body>

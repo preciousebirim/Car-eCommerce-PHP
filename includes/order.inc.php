@@ -9,7 +9,7 @@
 	$total = 0;
 	$result = "";
 	while($row = $carts->fetch_assoc()){
-		$total += $row['product_price'];
+		$total += ($row['product_price'] * $row['quantity']);
 		$count++;
 	}
 
@@ -21,4 +21,5 @@
 		unset($_POST);
 		$count = 0;
 		$total = 0;
+		header('location: /');
 	}

@@ -4,9 +4,7 @@
 	$user = new User();
 
 	$car = new Car();
-	$cars = $car->get_car();
-	$carsx = $car->get_car();
-	$carsxx = $car->get_car();
+	$cars = $car->get_cars($_GET['type'] ?? '');
 
 	$cart = new Cart();
 

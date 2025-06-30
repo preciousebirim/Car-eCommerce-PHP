@@ -16,7 +16,10 @@ function update(x){
 			for(var i=1; i<td.length; i+=2){
 				array.push(td[i].innerHTML);
 			}
+			
 			var inputs = document.querySelectorAll('.cars .update-cars .add input');
+			console.log(array);
+			
 			var j=3;
 			for(var i=0; i<inputs.length - 1; i++){
 				var str = array[j].replace("$", "");
@@ -24,6 +27,13 @@ function update(x){
 				j++;
 			}
 			document.querySelector('.cars .update-cars .add textarea').value = array[3];
+			document.querySelector('.cars .update-cars .add input[name="hire_price"]').value = array[11];
+			document.querySelector('.cars .update-cars .add input[name="for_sell"]').checked = array[12] === '1';
+			document.querySelector('.cars .update-cars .add input[name="for_hire"]').checked = array[13] === '1';
+			if(array[13] === '1'){
+				document.querySelector('.cars .update-cars .add input[name="for_hire"]').dispatchEvent(new Event('change'));
+			}
+			document.querySelector('.cars .update-cars .add input[name="hire_availability"]').checked = array[14] === '1';
 			document.querySelector('.cars .id_holder').value = array[array.length-1];
 		}
 	});
@@ -34,9 +44,9 @@ function decline(){
 }
 
 // ADMIN OPTION TABS
+
 var options = document.querySelectorAll('h3'),
 	tabs = document.querySelectorAll('#tab');
-console.log(options, tabs);
 
 function hide_all_tab(){
 	tabs.forEach((tab, i) => {
@@ -46,8 +56,11 @@ function hide_all_tab(){
 
 }
 hide_all_tab();
-tabs[0].style.display = "block";
-options[0].classList.add('active');
+
+const adminActiveTab = Number.parseInt(localStorage.getItem('adminActiveTab') ?? '0');
+
+tabs[adminActiveTab].style.display = "block";
+options[adminActiveTab].classList.add('active');
 
 options.forEach((item, i) => {
 	item.addEventListener('click', function(){
@@ -55,7 +68,22 @@ options.forEach((item, i) => {
 		tabs[i].style.display = 'block';
 		item.classList.add('active');
 		item.style.transition = '.5s';
+
+		localStorage.setItem('adminActiveTab', i.toString());
 	});
+});
+
+const hires = document.querySelectorAll('input[name="for_hire"]');
+
+hires.forEach((hire) => {
+	hire.addEventListener('change', function(){
+		const panel = hire.getAttribute('data-panel');
+		if(hire.checked){
+			document.querySelector('div#'+panel).style.display = "block";
+		} else {
+			document.querySelector('div#'+panel).style.display = "none";
+		}
+	})
 });
 
 
@@ -93,3 +121,4 @@ function decline_product(){
 	update_tab_products.style.display = "none";
 	add_tab_products.style.display = "block";
 }
+

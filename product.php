@@ -2,8 +2,8 @@
     session_start();
     include 'includes/product.inc.php';
     if(!isset($_SESSION['username'])){
-        header("Location: index.php");
-        exit();
+      //  header("Location: index.php");
+       // exit();
     }
 ?>
 <!DOCTYPE html>
@@ -13,12 +13,12 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.7.2/css/all.min.css"  />
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="css/product.css">
-		<title>TARUNNO DRIVES | product</title>
+		<title>AVIDHAUL TRUCKERS | product</title>
 	</head>
 	<body>
 		<div class="container">
 			<div class="nav">
-				<a href="javascript:history.back();"><i class="fas fa-angle-double-left"></i></a><h1>TARUNNO DRIVES</h1>
+				<a href="javascript:history.back();"><i class="fas fa-angle-double-left"></i></a><h1>AVIDHAUL TRUCKERS</h1>
 			</div>
 			<?php
 				if(isset($_SESSION['message'])){
@@ -36,14 +36,16 @@
         				</div>
         				<div class="image">
         					<div class="pro-info">
-        						<h2>Car </h2>
         						<h3>'.$row['manufacturer'].' '.$row['model'].'</h3>
         						<h5>$'.$row['price'].'</h5>
         						<br>
         						<h3>Condition:</h3>
         						<p>'.$row['condition'].'</p>
         						<form action="product.php?product_id='.$row['id'].'" method="post">
-        						   <button class="add-to-cart" type="submit" name="add-to-cart-product"> Add to Cart</button>
+								  <input type="hidden" name="id" value="'.$row['id'].'">
+								  <input type="hidden" name="sparepart" value="1">
+								   <p><input type="number" name="quantity" value = "1" min= "1"></p>
+        						   <button class="add-to-cart" type="submit" name="add-to-cart"> Add to Cart</button>
         						   <button type="button" class="call"><i class="fas fa-phone"></i></button>
         						   <button type="button" class="mail"><i class="fas fa-envelope"></i></button>
         						</form>
@@ -67,13 +69,14 @@
         				</div>
         				<div class="image">
         					<div class="pro-info">
-        						<h2>Car </h2>
         						<h3>'.$row['manufacturer'].' '.$row['model'].'</h3>
         						<h5>$'.$row['price'].'</h5>
         						<br>
         						<h3>Condition:</h3>
         						<p>'.$row['condition'].'</p>
         						<form action="product.php?id='.$row['id'].'" method="post">
+								  <input type="hidden" name="id" value="'.$row['id'].'">
+								  <p><input type="number" name="quantity" value = "1" min= "1"></p>
         						   <button class="add-to-cart" type="submit" name="add-to-cart"> Add to Cart</button>
         						   <button type="button" class="call"><i class="fas fa-phone"></i></button>
         						   <button type="button" class="mail"><i class="fas fa-envelope"></i></button>
@@ -94,7 +97,7 @@
 			  <a href="#"> <i class="fab fa-youtube"> <span></span> </i> </a>
 		  </div>
 		  <div class="credit">
-		  	<h1>TARUNNO DRIVES | Developed by mahadi hasan tarunno</h1>
+		  	<h1>AVIDHAUL TRUCKERS | Developed by mahadi hasan tarunno</h1>
 		  </div>
 		</footer>
 	</body>

@@ -9,14 +9,7 @@
 			$stmt = $this->connect()->query($sql);
 			return $stmt;
 		}
-		public function update_cart_increment($id){
-			$sql = "UPDATE `users` SET `cart` = `cart` + 1 WHERE `id`='$id';";
-			$this->connect()->query($sql);
-		}
-		public function update_cart_decrement($id){
-			$sql = "UPDATE `users` SET `cart` = `cart` - 1 WHERE `id`='$id';";
-			$this->connect()->query($sql);
-		}
+		
 		public function insert_user($username, $email, $password, $repassword, $admin){
 			$conn = $this->connect();
 			$errors = array();

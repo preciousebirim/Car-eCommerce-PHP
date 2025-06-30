@@ -47,9 +47,10 @@
 			$sql = "SELECT * FROM `cart` WHERE `user_id`='$id';";
 			$cart = $this->connect()->query($sql);
 			while($row = $cart->fetch_assoc()){
-				$car = $row['product_id'];
-				$parts = $row['product_id_2'];
-				$sql = "INSERT INTO `order_items` SET `order_id`='$order_id', `product_id`='$car', `product_id2`='$parts';";
+				$productId = $row['product_id'];
+				$isSparePart = $row['is_sparepart'];
+				$quantity = $row['quantity'];
+				$sql = "INSERT INTO `order_items` SET `order_id`='$order_id', `product_id`='$productId', `is_sparepart`= $isSparePart, quantity = $quantity;";
 				$this->connect()->query($sql);
 			}
 		}

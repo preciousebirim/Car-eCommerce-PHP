@@ -9,12 +9,12 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.7.2/css/all.min.css"  />
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="css/checkout.css">
-		<title>TARUNNO DRIVES | checkout</title>
+		<title>AVIDHAUL TRUCKERS | checkout</title>
 	</head>
 	<body>
 		<div class="all">
 			<div class="nav">
-				<a href="cart.php"><i class="fas fa-angle-double-left"></i></a><h1>TARUNNO DRIVES</h1>
+				<a href="cart.php"><i class="fas fa-angle-double-left"></i></a><h1>AVIDHAUL TRUCKERS</h1>
 			</div>
 			<div class="container">
 				<h2> Checkout </h2>
@@ -47,7 +47,7 @@
 			  <a href="#"> <i class="fab fa-youtube"> <span></span> </i> </a>
 		  </div>
 		  <div class="credit">
-		  	<h1>TARUNNO DRIVES | Developed by mahadi hasan tarunno</h1>
+		  	<h1>AVIDHAUL TRUCKERS | Developed by mahadi hasan tarunno</h1>
 		  </div>
 		</footer>
 	</body>

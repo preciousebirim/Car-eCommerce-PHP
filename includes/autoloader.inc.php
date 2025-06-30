@@ -4,6 +4,6 @@
 	function classLoader($class){
 		$dic = "classes/";
 		$extension = ".class.php";
-		$path = $dic . $class . $extension;
+		$path = $dic . strtolower($class) . $extension;
 		include_once $path;
 	}
