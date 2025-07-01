@@ -1,23 +1,22 @@
 <?php
 session_start();
-include 'includes/admin.inc.php';
+require_once __DIR__.'/../includes/admin.inc.php';
 ?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
 
 <head>
-	<meta charset="utf-8">
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.7.2/css/all.min.css" />
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link rel="stylesheet" href="css/admin.css">
-	<title>AVIDHAUL TRUCKERS | product</title>
+	<?php require_once __DIR__ . '/../includes/meta-tags.php'; ?>
+	<link rel="stylesheet" href="/css/admin.css">
+	<title>AVIDHAUL TRUCKERS | orders</title>
 </head>
 
 <body>
 	<div class="order-all">
 		<div class="heading">
 			<h1><a href="javascript:history.back();"><i class="fas fa-angle-double-left"></i></a>AVIDHAUL TRUCKERS
-				<span> Admin </span> </h1>
+				<span> Admin </span>
+			</h1>
 		</div>
 		<div class="user-info">
 			<h3>Client details</h3>
@@ -52,7 +51,7 @@ include 'includes/admin.inc.php';
 
 					echo '
 							<div class="item">
-								<img src="assets/Product_images/' . $item['image'] . '">
+								<img src="/assets/Product_images/' . $item['image'] . '">
 								<h5 class="item-name">' . $item['model'] . '</h5>
 								<h5 class="item-name">' . $item['manufacturer'] . '</h5>
 								<h6 class="item-price">$' . $item['price'] . '</h6>
@@ -67,7 +66,7 @@ include 'includes/admin.inc.php';
 					if ($item) {
 						echo '
 							<div class="item">
-								<img src="assets/Car_images/' . $item['image'] . '">
+								<img src="/assets/Car_images/' . $item['image'] . '">
 								<h5 class="item-name">' . $item['model'] . '</h5>
 								<h5 class="item-name">' . $item['manufacturer'] . '</h5>
 								<h6 class="item-price">$' . $item['price'] . '</h6>
@@ -90,7 +89,7 @@ include 'includes/admin.inc.php';
 			<a href="#"> <i class="fab fa-youtube"> <span></span> </i> </a>
 		</div>
 		<div class="credit">
-			<h1>AVIDHAUL TRUCKERS | Developed by mahadi hasan tarunno</h1>
+			<h1>AVIDHAUL TRUCKERS </h1>
 		</div>
 	</footer>
 </body>

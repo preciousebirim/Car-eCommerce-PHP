@@ -3,10 +3,9 @@ var items = document.querySelectorAll('.stories .item'),
 	images = document.querySelectorAll('.stories .story-image'),
 	bodies = document.querySelectorAll('.stories .story-body');
 
-console.log(images);
 items.forEach((item, i) => {
 	item.onclick = function(){
-		var imageUrl = 'assets/Story_images/'+ images[i].innerHTML +'.jpg';
+		var imageUrl = '/assets/Story_images/'+ images[i].innerHTML +'.jpg';
 
 		var container = document.body;
 		var imageWindow = document.createElement('div');

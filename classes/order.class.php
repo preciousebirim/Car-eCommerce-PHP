@@ -9,6 +9,12 @@
 			$result = $this->connect()->query($sql);
 			return $result;
 		}
+
+		public function get_user_orders($id){
+			$sql = "SELECT * FROM `orders` WHERE `user_id` = '$id';";
+			$result = $this->connect()->query($sql);
+			return $result;
+		}
 		public function delete_order($id){
 			$sql = "DELETE FROM `orders` WHERE `id`='$id';";
 			$this->connect()->query($sql);

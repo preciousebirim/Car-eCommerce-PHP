@@ -2,8 +2,8 @@
 	spl_autoload_register('classLoader');
 
 	function classLoader($class){
-		$dic = "classes/";
+		$dic = __DIR__."/../classes/";
 		$extension = ".class.php";
 		$path = $dic . strtolower($class) . $extension;
-		include_once $path;
+		require_once $path;
 	}

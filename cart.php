@@ -22,7 +22,7 @@
 					<div class="product">
                         <?php
                         if($carts->num_rows == 0){
-                            echo '<img class="empty-cart" src="assets/Display_images/empty_cart.png">';
+                            echo '<img class="empty-cart" src="/assets/Display_images/empty_cart.png">';
                             echo '<h1 class="empty-h1"> Empty Cart </h1>';
                         }
                         foreach($cartItems as $row){
@@ -79,7 +79,7 @@
 			  <a href="#"> <i class="fab fa-youtube"> <span></span> </i> </a>
 		  </div>
 		  <div class="credit">
-		  	<h1>AVIDHAUL TRUCKERS | Developed by mahadi hasan tarunno</h1>
+		  	<h1>AVIDHAUL TRUCKERS </h1>
 		  </div>
 		</footer>
 	</body>

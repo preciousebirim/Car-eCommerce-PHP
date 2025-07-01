@@ -195,7 +195,7 @@ td{
 /* CARS*/
 .cars{
 	width: 100%;
-	min-height: 80vh
+	min-height: 80vh;
 	display: none;
 }
 .cars .flex-box{
@@ -394,7 +394,7 @@ textarea{
 /* PRODUCTS */
 .products{
 	width: 100%;
-	min-height: 80vh
+	min-height: 80vh;
 	display: none;
 }
 .products .flex-box{

@@ -47,7 +47,7 @@
 			  <a href="#"> <i class="fab fa-youtube"> <span></span> </i> </a>
 		  </div>
 		  <div class="credit">
-		  	<h1>AVIDHAUL TRUCKERS | Developed by mahadi hasan tarunno</h1>
+		  	<h1>AVIDHAUL TRUCKERS </h1>
 		  </div>
 		</footer>
 	</body>

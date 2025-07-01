@@ -110,6 +110,7 @@ switch(activeTab){
 		box1.dispatchEvent(new MouseEvent('click'));
 		break;
 }
+
 	
 // ACTIVE PAGE
 function deactive(){
@@ -136,7 +137,7 @@ window.onscroll = ()=>{
 	else{
 		document.querySelector('header h1').style.display = 'block';
 		document.querySelector('header').style.height = '100vh';
-		document.querySelector('header').style.backgroundImage = "url('assets/Display_images/header.jpg')";
+		document.querySelector('header').style.backgroundImage = "url('/assets/Display_images/header.jpg')";
 		document.querySelector('header').style.backgroundSize = "cover";
 		document.querySelector('header').style.backgroundPosition = "center";
 		document.querySelector('header').style.position = 'static';
@@ -255,34 +256,6 @@ signup.addEventListener('click', function(){
 	signup.classList.add('active-form');
 });
 
-//CARS tab swap
-var regular = document.querySelector('.cars .regular');
-var sports = document.querySelector('.cars .sports');
-var offroad = document.querySelector('.cars .off-road');
-regular.addEventListener('click', function(){
-	document.querySelector('.cars-container3').style.display = 'none';
-	document.querySelector('.cars-container2').style.display = 'none';
-	document.querySelector('.cars-container1').style.display = 'block';
-	regular.classList.add('active-cars');
-	sports.classList.remove('active-cars');
-	offroad.classList.remove('active-cars');
-});
-sports.addEventListener('click', function(){
-	document.querySelector('.cars-container3').style.display = 'none';
-	document.querySelector('.cars-container2').style.display = 'block';
-	document.querySelector('.cars-container1').style.display = 'none';
-	regular.classList.remove('active-cars');
-	sports.classList.add('active-cars');
-	offroad.classList.remove('active-cars');
-});
-offroad.addEventListener('click', function(){
-	document.querySelector('.cars-container2').style.display = 'none';
-	document.querySelector('.cars-container1').style.display = 'none';
-	document.querySelector('.cars-container3').style.display = 'block';
-	regular.classList.remove('active-cars');
-	sports.classList.remove('active-cars');
-	offroad.classList.add('active-cars');
-});
 
 
 // GALLARY IMAGES

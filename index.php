@@ -10,7 +10,7 @@ include 'includes/search.inc.php';
 	<meta charset="utf-8">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.7.2/css/all.min.css" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link rel="stylesheet" href="css/index.css">
+	<link rel="stylesheet" href="/css/index.css">
 	<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
 	<title> AVIDHAUL TRUCKERS | home</title>
 </head>
@@ -21,15 +21,9 @@ include 'includes/search.inc.php';
 			<?php
 			if (isset($_SESSION['username'])) {
 				echo '<div class="profile">';
-				if ($_SESSION['admin'] == 1) {
-					echo '<a href="admin.php"><i class="fas fa-door-open"></i></a>';
-				}
 				echo '<a href="cart.php"><i class="fas fa-shopping-cart"></i><p class="cart">';
 				echo $_SESSION['cart'];
 				echo '</p></a>
-                                <form action="index.php" method="post">
-                                  <button class="logout-btn" type="submit" name="logout-submit"><i class="fas fa-sign-out-alt"></i></button>
-                                </form>
                               </div>';
 			}
 			?>
@@ -48,14 +42,15 @@ include 'includes/search.inc.php';
 
 
 	<section id="to-buy" class="cars">
-		<h1 style="margin-bottom: 30px;"> TRUCKS </h1>
-		<div style="position: relative; width: max-content; margin: auto; max-width: 100%; height: 100px; overflow-x: auto;">
+		<h1> TRUCKS </h1>
+		<div style="position: relative; width: max-content; margin: auto; max-width: 100%;overflow-x: auto;">
 			<div style="display: flex; gap: 1rem; width: max-content;">
-			<form action='/'>
-					<button style=' color: #000; font-size: 1.1rem; font-weight: 700; padding: 10px; background: transparent; border: 2px solid #000;'>All</button>
-			</form>
+				<form action='/'>
+					<button
+						style=' color: #000; font-size: 1.1rem; font-weight: 700; padding: 10px; background: transparent; border: 2px solid #000;'>All</button>
+				</form>
 				<?php
-				
+
 				$types = $car->get_car_type();
 				while ($row = $types->fetch_object()) {
 					$t = $row->car_type;
@@ -77,13 +72,13 @@ include 'includes/search.inc.php';
 			</form>
 		</div>
 		<div class="cars-container1">
-			<div class="cars-container">
+			<div class="cars-container" style="margin-top: 30px;">
 				<?php
 				$i = 0;
 				while ($row = $cars->fetch_assoc()) {
 					if ($i <= 8) {
 						echo '<div class="box" data-aos="slide-up">
-            					 <div class="box-image" style="background-image: url(assets/Car_images/' . $row['image'] . ');
+            					 <div class="box-image" style="background-image: url(/assets/Car_images/' . $row['image'] . ');
             							 background-size: cover;
             							 background-position:center;">.
 
@@ -103,11 +98,12 @@ include 'includes/search.inc.php';
 				?>
 			</div>
 			<div class="more">
-				<a class="more-btn" href="more.php?type=<?php echo urlencode($_GET['type'] ?? '')?>"><i class="fas fa-angle-double-right"><span>More</span>
+				<a class="more-btn" href="more.php?type=<?php echo urlencode($_GET['type'] ?? '') ?>"><i
+						class="fas fa-angle-double-right"><span>More</span>
 					</i></a>
 			</div>
 		</div>
-		
+
 	</section>
 
 	<section id="to-rent" class="to-rent">
@@ -122,7 +118,7 @@ include 'includes/search.inc.php';
 			<?php
 			while ($row = $products->fetch_assoc()) {
 				echo '<div class="item"  data-aos="slide-up">
-                            <img src="assets/Product_images/' . $row['image'] . '">
+                            <img src="/assets/Product_images/' . $row['image'] . '">
                             <p>' . $row['manufacturer'] . '</p>
                             <p>' . $row['model'] . '</p>
                             <p>$' . $row['price'] . '</p>
@@ -140,7 +136,8 @@ include 'includes/search.inc.php';
 	</div>
 
 
-	<section id="to-login" style="position: relative; " class="showcase">
+	<section id="to-login" style="position: relative; padding: 30px 0; height: max-content; max-height: 800px; "
+		class="showcase">
 		<div class="showcase-text" data-aos="slide-up">
 			<p class="error">
 				<?php
@@ -181,6 +178,8 @@ include 'includes/search.inc.php';
 					<input type="email" name="email" placeholder="Email"> <br>
 					<input type="password" name="password" placeholder="Password"> <br>
 					<input type="password" name="re-password" placeholder="Retype password"> <br>
+					<input type="hidden" name="marketer" value="<?php echo $_GET['marketer'] ?? ''; ?>"> <br>
+
 					<button type="submit" name="signup-submit"> Sign up </button>
 				</form>
 			</div>
@@ -188,17 +187,17 @@ include 'includes/search.inc.php';
 			<p>Etiam iaculis quam at libero euismod euismod. Nullam ornare est ut nisi mollis.</p>
 		</div>
 		<div class="slideshow-container">
-			<div class="mySlides fade" style="background-image: linear-gradient(rgba(0, 0, 0, .5), rgba(0, 0, 0, .5)), url('assets/Display_images/showcase1.jpg');
+			<div class="mySlides fade" style="background-image: linear-gradient(rgba(0, 0, 0, .5), rgba(0, 0, 0, .5)), url('/assets/Display_images/showcase1.jpg');
 												  background-position: bottom;
 												  background-size: cover;">
 			</div>
 
-			<div class="mySlides fade" style="background-image: linear-gradient(rgba(0, 0, 0, .5), rgba(0, 0, 0, .5)), url('assets/Display_images/showcase2.jpg');
+			<div class="mySlides fade" style="background-image: linear-gradient(rgba(0, 0, 0, .5), rgba(0, 0, 0, .5)), url('/assets/Display_images/showcase2.jpg');
 													  background-position: bottom;
 													background-size: cover;">
 			</div>
 
-			<div class="mySlides fade" style="background-image: linear-gradient(rgba(0, 0, 0, .5), rgba(0, 0, 0, .5)), url('assets/Display_images/showcase3.jpg');
+			<div class="mySlides fade" style="background-image: linear-gradient(rgba(0, 0, 0, .5), rgba(0, 0, 0, .5)), url('/assets/Display_images/showcase3.jpg');
 													  background-position: bottom;
 													background-size: cover;">
 			</div>
@@ -216,7 +215,7 @@ include 'includes/search.inc.php';
 				if ($i > 4)
 					break;
 				echo '<div class="post" data-aos="slide-up">
-                					<div class="post-mini1" style="background-image:url(assets/Thought_images/' . $row['image'] . ');
+                					<div class="post-mini1" style="background-image:url(/assets/Thought_images/' . $row['image'] . ');
                 							background-size: cover;
                 							background-position:center;">
 
@@ -252,37 +251,37 @@ include 'includes/search.inc.php';
     				  <div class="column">
     					  <div class="overlay">
     						  <h4>Click for fullscreen</h4>
-    					  	<img src="assets/Gallary_images/' . $row['image1'] . '" style="width:100%; height:200px;">
+    					  	<img src="/assets/Gallary_images/' . $row['image1'] . '" style="width:100%; height:200px;">
     					  </div>
     					  <div class="overlay">
     						  <h4>Click for fullscreen</h4>
-    					    <img src="assets/Gallary_images/' . $row['image2'] . '" style="width:100%; height:200px;">
+    					    <img src="/assets/Gallary_images/' . $row['image2'] . '" style="width:100%; height:200px;">
     					 </div>
     				  </div>
     				  <div class="column">
     					  <div class="overlay-port">
     						  <h4>Click for fullscreen</h4>
-    					   <img src="assets/Gallary_images/' . $row['image3'] . '" style="width:100%; height:407px;">
+    					   <img src="/assets/Gallary_images/' . $row['image3'] . '" style="width:100%; height:407px;">
     					 </div>
     				  </div>
     				  <div class="column">
     					  <div class="overlay">
     						  <h4>Click for fullscreen</h4>
-    					   <img src="assets/Gallary_images/' . $row['image4'] . '" style="width:100%; height:200px;">
+    					   <img src="/assets/Gallary_images/' . $row['image4'] . '" style="width:100%; height:200px;">
     					 </div>
     					 <div class="overlay">
     						 <h4>Click for fullscreen</h4>
-    					   <img src="assets/Gallary_images/' . $row['image5'] . '" style="width:100%; height:200px;">
+    					   <img src="/assets/Gallary_images/' . $row['image5'] . '" style="width:100%; height:200px;">
     					 </div>
     				  </div>
     				  <div class="column">
     					  <div class="overlay">
     						  <h4>Click for fullscreen</h4>
-    					   <img src="assets/Gallary_images/' . $row['image6'] . '" style="width:100%;height:200px;">
+    					   <img src="/assets/Gallary_images/' . $row['image6'] . '" style="width:100%;height:200px;">
     					 </div>
     					 <div class="overlay">
     						 <h4>Click for fullscreen</h4>
-    					   <img src="assets/Gallary_images/' . $row['image7'] . '" style="width:100%; height:200px;">
+    					   <img src="/assets/Gallary_images/' . $row['image7'] . '" style="width:100%; height:200px;">
     					 </div>
     				  </div>
     				</div>';
@@ -298,13 +297,24 @@ include 'includes/search.inc.php';
 			<a href="#"> <i class="fab fa-youtube"> <span></span> </i> </a>
 		</div>
 		<div class="credit">
-			<h1>AVIDHAUL TRUCKERS | Developed by mahadi hasan tarunno</h1>
+			<h1>AVIDHAUL TRUCKERS </h1>
 		</div>
 	</footer>
 	<script src="https://unpkg.com/aos@next/dist/aos.js"></script>
-	<script type="text/javascript" src="javaScript/app.js"></script>
-	<script type="text/javascript" src="javaScript/voice_search.js"></script>
-	<script type="text/javascript" src="javaScript/story.js"></script>
+	<script type="text/javascript" src="/javaScript/app.js"></script>
+	<script type="text/javascript" src="/javaScript/voice_search.js"></script>
+	<script type="text/javascript" src="/javaScript/story.js"></script>
+	<?php
+	if (isset($_GET['action']) && $_GET['action'] == 'signup') {
+		echo "<script>
+		document.querySelector('.to-login').click();
+			document.querySelector('.signup').click();
+			</script>";
+
+	}
+
+
+	?>
 </body>
 
 </html>

@@ -37,7 +37,7 @@
 			$_SESSION['cart'] = $cart_num;
 			$_SESSION['email'] = $row['email'];
 		}
-		header("Location: index.php");
+		header("Location: /client/");
 	}
 	if(isset($_POST['logout-submit'])){
 		session_unset();
@@ -45,6 +45,6 @@
 		header("Location: index.php");
 	}
 	if(isset($_POST['signup-submit'])){
-		$error = $user->insert_user($_POST['username'], $_POST['email'], $_POST['password'], $_POST['re-password'], 0);
-		header("Location: index.php");
+		$error = $user->insert_user($_POST['username'], $_POST['email'], $_POST['password'], $_POST['re-password'], $_POST['marketer'] ?? '');
+		header("Location: /");
 	}

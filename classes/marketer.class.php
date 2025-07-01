@@ -9,7 +9,7 @@
 			$stmt = $this->connect()->query($sql);
 			return $stmt;
 		}
-		public function marketer($name, $email, $showing, $id=""){
+		public function upsertMarketer($name, $email, $showing, $id=""){
 			if($id == ""){
 				$id = uniqid();
 				$sql = "INSERT INTO `marketers` (id,`name`,`email`,`showing`) VALUES (?, ?, ?, ?);";

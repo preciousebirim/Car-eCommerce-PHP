@@ -26,7 +26,7 @@ header{
 	width: 100%;
 	height: 100vh;
 	font-size: 10px;
-	background-image: url('../assets/Display_images/header.jpg');
+	background-image: url('/assets/Display_images/header.jpg');
 	background-position: center;
 	background-size: cover;
 	z-index: 100;
@@ -37,6 +37,9 @@ header h1{
 	padding-top: 40vh;
 	text-shadow: 2px 2px 2px #fff;
 	font-size: 70px;
+	@media screen and (max-width: 500px){
+		font-size: 50px;
+	}
 	transition: 1s;
 }
 header span{
@@ -50,6 +53,15 @@ header span{
 nav ul{
 	margin-top: 10px;
 	transition: .5s;
+	@media screen and (max-width: 500px){
+		background-color: rgba(0, 0, 0, 0.92);
+		color: #fff;
+		padding-top: 10px;
+		padding-bottom: 10px;
+		display: grid;
+		grid-template-columns: repeat(3, 1fr);
+		margin-top: 30px;
+	}
 }
 nav ul li{
 	cursor: pointer;
@@ -57,12 +69,16 @@ nav ul li{
 	display: inline;
 	padding: 2px 3px 2px 3px;
 	margin-right: 10px;
+	margin-top: 10px;
 }
 .active-tab{
 	background-color: black;
 	padding: 3px 6px 3px 6px;
 	border-radius: 3px;
 	color: #fff;
+	@media screen and (max-width: 500px){
+		color: #ff0000;
+	}
 	font-size: 20px;
 	transition: .4s;
 }
@@ -79,7 +95,16 @@ nav ul li{
 	right: 10px;
 	text-align: right;
 	width: 20%;
-	float: right;
+	z-index: 20;
+	@media screen and (max-width: 500px){
+		width: 100vw;
+		top: 0px;
+		left: 0px;
+		background-color: rgba(0, 0, 0, 0.92);
+		padding: 10px 0;
+		color: #fff;
+		
+	}
 }
 .cart{
 	font-family: Arial, sans-serif;
@@ -97,7 +122,10 @@ nav ul li{
 }
 .profile a{
 	text-decoration: none;
-	color: black;
+	color: #000;
+	@media screen and (max-width: 500px){
+		color: #fff;
+	}
 }
 .profile i{
 	padding-right: 10px;
@@ -108,13 +136,12 @@ nav ul li{
 .showcase .mySlides {
 	display: none;
 	width: 100%;
-	height: 100vh;
+	height: 100%;
 }
 .showcase{
 	align-items: center;
 	width: 100%;
 	height: 100vh;
-	margin-bottom: 150px;
 }
 .showcase h1{
 	font-weight: lighter;
@@ -129,7 +156,7 @@ nav ul li{
 	text-align: center;
 	z-index: 90;
 	position: relative;
-	top: 45%;
+	top: 15%;
 	width: 100%;
 	color: #fff;
 	font-size: 30px;
@@ -311,8 +338,10 @@ nav ul li{
 	border-radius: 3px;
 }
 input[type='email'], input[type='password'], input[type='text']{
+	width: 90%;
+	max-width: 500px;
 	padding: 8px 25px 8px 25px;
-	margin-left: 5px;
+	margin: 10px auto;
 	border: none;
 	border-radius: 3px;
 }
@@ -341,47 +370,24 @@ input[type='email'], input[type='password'], input[type='text']{
 	width: 100%;
 	height: 50px;
 }
-.cars-container1{
-	height: 100%;
+.cars-container{
 	width: 100%;
-	float: left;
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(285px, 1fr));
+	@media screen and (max-width: 600px){
+		grid-template-columns: 285px;	
+	}
+	justify-items: center;
+	gap: 1rem;
 }
-.cars-container1 .box{
+.cars-container .box{
 	position: relative;
-	margin: 15px;
 	background-color: #fff;
 	height: 300px;
-	width: 285px;
-	line-height: 200px;
-	float: left;
-}
-.cars-container2{
-	display: none;
-	height: 100%;
+	max-width: 285px;
 	width: 100%;
-	float: left;
-}
-.cars-container2 .box{
-	margin: 15px;
-	background-color: #fff;
-	height: 300px;
-	width: 285px;
 	line-height: 200px;
-	float: left;
-}
-.cars-container3{
-	display: none;
-	height: 100%;
-	width: 100%;
-	float: left;
-}
-.cars-container3 .box{
-	margin: 15px;
-	background-color: #fff;
-	height: 300px;
-	width: 285px;
-	line-height: 200px;
-	float: left;
+
 }
 .cars h1{
 	padding-top: 70px;
@@ -444,12 +450,6 @@ input[type='email'], input[type='password'], input[type='text']{
 	font-size: 30px;
 	border-radius: 30px;
 }
-.cars-container{
-	margin-top: 30px;
-	display: relative;
-	width: 100%;
-	height: 100%;;
-}
 .more i span{
 	display: none;
 	font-weight: lighter;
@@ -461,20 +461,25 @@ input[type='email'], input[type='password'], input[type='text']{
 }
 
 /* PRODUCTS */
-.products{
-	display: inline-block;
-	/* height: 300px; */
+.product-container{
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+	@media screen and (max-width: 500px){
+		grid-template-columns: 200px;	
+	}
+	justify-items: center;
+	gap: 1rem;
+	width: 95%;
+	padding: 10px 2.5%;
 }
 .products .item{
 	display: inline;
 	background-color: #fff;
 	border-radius: 4px;
-	border: 0.005cm solid #ebebeb;
-	box-shadow: 3px 3px 3px lightgray;
-	width: 200px;
-	height: 288px;
-	margin-left: 20px;
-	float: left;
+	border: 1px solid #ebebeb;
+	max-width: 200px;
+	width: 100%;
+	min-height: 288px;
 }
 .products .item img{
 	width: 198px;
@@ -521,7 +526,8 @@ input[type='email'], input[type='password'], input[type='text']{
 /* MY THOUGHTS */
 .my-thoughts{
 	display: flex;
-	width: 80%;
+	width: 100%;
+	max-width: 900px;
 	margin: 0 auto;
 }
 .my-thoughts h1{
@@ -537,9 +543,13 @@ input[type='email'], input[type='password'], input[type='text']{
 	color: #999999;
 	margin-bottom: 20px;
 	width: 100%;
-	height: 200px;
-	display: flex;
-	column-gap: 20px;
+	display: grid;
+	grid-template-columns: 200px 1fr;
+	@media screen and (max-width: 500px){
+		grid-template-columns: 1fr;	
+	}
+	gap: 1rem;
+	
 }
 .post-mini1{
 	border-radius: 6px;
@@ -547,6 +557,11 @@ input[type='email'], input[type='password'], input[type='text']{
 	border-radius: 5px;
 	border: 0.005cm solid #ebebeb;
 	box-shadow: 3px 3px 3px lightgray;
+	width: 200px;
+	height: 200px;
+	@media screen and (max-width: 500px){
+		width: 100%;
+	}
 }
 .post-mini2{
 	flex: 2.5;

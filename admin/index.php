@@ -1,22 +1,21 @@
 <?php
 session_start();
-include 'includes/admin.inc.php';
+require_once __DIR__.'/../includes/admin.inc.php';
 ?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
 
 <head>
-	<meta charset="utf-8">
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.7.2/css/all.min.css" />
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link rel="stylesheet" href="css/admin.css">
-	<title>AVIDHAUL TRUCKERS | admin</title>
+<meta charset="utf-8">
+<?php require_once __DIR__.'/../includes/meta-tags.php'; ?>
+	<title> AVIDHAUL TRUCKERS | home</title>
+	<link rel="stylesheet" href="/css/admin.css">
 </head>
 
 <body>
 	<header>
 		<div class="heading">
-			<h1><a href="index.php"><i class="fas fa-angle-double-left"></i></a>AVIDHAUL TRUCKERS <span> Admin </span>
+			<h1><a href="/admin"><i class="fas fa-angle-double-left"></i></a>AVIDHAUL TRUCKERS <span> Admin </span>
 			</h1>
 		</div>
 		<nav>
@@ -27,6 +26,7 @@ include 'includes/admin.inc.php';
 			<h3>TRUCKS</h3>
 			<h3>GALLARY</h3>
 			<h3>SPARE PARTS</h3>
+			<a href="/client" style="color: #000; text-decoration: none;"><h3><i class="fas fa-door-open"></i> CLIENT PORTAL</h3></a>
 		</nav>
 	</header>
 	<?php
@@ -556,10 +556,10 @@ include 'includes/admin.inc.php';
 			<a href="#"> <i class="fab fa-youtube"> <span></span> </i> </a>
 		</div>
 		<div class="credit">
-			<h1>AVIDHAUL TRUCKERS | Developed by mahadi hasan tarunno</h1>
+			<h1>AVIDHAUL TRUCKERS </h1>
 		</div>
 	</footer>
-	<script type="text/javascript" src="javaScript/admin.js"></script>
+	<script type="text/javascript" src="/javaScript/admin.js"></script>
 </body>
 
 </html>

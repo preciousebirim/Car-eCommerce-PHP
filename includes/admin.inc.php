@@ -1,5 +1,5 @@
 <?php
-	include 'includes/autoloader.inc.php';
+	require_once __DIR__.'/../includes/autoloader.inc.php';
 
 	$car = new Car();
 	$cars = $car->get_car();
@@ -42,7 +42,7 @@
 	$marketer = new Marketer();
 	$marketers = $marketer->get_marketer();
 	if(isset($_POST['add-marketer-submit'])){
-		$marketer->marketer($_POST['name'], $_POST['email'], 1, $_POST['id'] ?? '');
+		$marketer->upsertMarketer($_POST['name'], $_POST['email'], 1, $_POST['id'] ?? '');
 		header("Location: admin.php?tab=marketer");
 	}
 	if(isset($_GET['marketer_show'])){

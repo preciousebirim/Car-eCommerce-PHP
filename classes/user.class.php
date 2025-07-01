@@ -10,8 +10,13 @@
 			return $stmt;
 		}
 		
-		public function insert_user($username, $email, $password, $repassword, $admin){
+		public function insert_user($username, $email, $password, $repassword, $marketer=''){
 			$conn = $this->connect();
+
+			$sql = "SELECT * FROM users ";
+			$q = $conn->query($sql);
+			$admin = $q->num_rows == 0 ? 1 : 0; // If no user exists, set admin to 1, else set to 0
+
 			$errors = array();
 
 			if(empty($username)){
@@ -32,10 +37,11 @@
 				array_push($errors, 'Passwords did not match');
 			}
 			if(empty($errors)){
-				$sql = "INSERT INTO users SET username=?, email=?, password=?, admin=?;";
+				$sql = "INSERT INTO users (username, email, `password`, `admin`, marketer) VALUES (?, ?, ?, ?, ?);";
 				$stmt = $conn->prepare($sql);
 				$password = password_hash($password, PASSWORD_DEFAULT);
-				$stmt->bind_param("sssi", $username, $email, $password, $admin);
+				$marketer = trim($marketer == '') ? NULL : $marketer;
+				$stmt->bind_param("sssis", $username, $email, $password, $admin, $marketer);
 				$stmt->execute();
 			}
 			$_SESSION['sign_message'] = $errors[0];
