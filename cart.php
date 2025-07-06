@@ -26,16 +26,14 @@
                             echo '<h1 class="empty-h1"> Empty Cart </h1>';
                         }
                         foreach($cartItems as $row){
-                            if($row['is_sparepart'] == 0){                                
+                            if($row['is_sparepart'] == 0){      
+                                $days = ($row['is_hire'] == 1) ? ' <em>  hire for '.$row['hire_days'].' days </em>' : '';                          
                                 echo '<div class="item">
                                     <img src="assets/Car_images/'.$row['product_image'].'">
                                     <div class="item-info">
-                                        <h2>'.$row['product_name'].' ('.$row['quantity'].')</h2>
-                                        <p>'.$row['product_model'].'</p>
+                                        <h2>'.$row['product_name'].' ('.$row['quantity'].') '.$days.'</h2>
+                                        <p>'.$row['product_model'].'</p><br>
                                         <p>$'.$row['product_price'].'</p>
-                                        <p style="font-size: 10px; margin-top:20px; color: gray;">survived not only five centuries, but also the leap into electronic typesetting,
-                                        remaining essentially unchanged. It was popularised in the 1960s with the release
-                                        of Letraset sheets</p>
                                         <form class="" action="product.php?id='.$row['product_id'].'" method="post">
                    					 	    <button type="submit" class="order-btn"> Review</button>
                    					    </form>
@@ -52,9 +50,6 @@
                                         <h2>'.$row['product_name'].' ('.$row['quantity'].')</h2>
                                         <p>'.$row['product_model'].'</p>
                                         <p>$'.$row['product_price'].'</p>
-                                        <p style="font-size: 10px; margin-top:20px; color: gray;">survived not only five centuries, but also the leap into electronic typesetting,
-                                        remaining essentially unchanged. It was popularised in the 1960s with the release
-                                        of Letraset sheets</p>
                                         <form class="" action="product.php?product_id='.$row['product_id'].'" method="post">
                    					 	    <button type="submit" class="order-btn"> Review</button>
                    					    </form>

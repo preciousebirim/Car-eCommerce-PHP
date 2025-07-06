@@ -57,7 +57,7 @@ require_once __DIR__.'/../includes/client.inc.php';
                             foreach($orders as $row) {
                                 echo '<tr>
     									<td>' . $i . '</td>
-    									<td>' . date('Y-m-d H:i A', strtotime($row["user_id"])) . '</td>
+    									<td>' . date('Y-m-d H:i A', strtotime($row["created_at"])) . '</td>
     									<td class="user-btn">
     											<a href="orders.php?order_id=' . $row["id"] . '"><i class="fas fa-address-card"></i>
     									</td>

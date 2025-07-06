@@ -1,23 +1,27 @@
 <?php
 class Car extends DB
 {
-	public function get_car($id = "")
+	public function get_car($id = 0)
 	{
-		if ($id == "") {
+		if ($id == 0) {
 			$sql = "SELECT * FROM cars";
 		} else {
-			$sql = "SELECT * FROM cars WHERE id='$id'";
+			$sql = "SELECT * FROM cars WHERE id=$id";
 		}
 		$stmt = $this->connect()->query($sql);
 		return $stmt;
 	}
 
-	public function get_cars($carType = "")
+	public function get_cars($carType = "", $for_hire= false)
 	{
+		$whereClause = "for_hire = 0";
+		if ($for_hire) {
+			$whereClause = "for_hire = 1";
+		}
 		if ($carType == "") {
-			$sql = "SELECT * FROM cars";
+			$sql = "SELECT * FROM cars WHERE $whereClause";
 		} else {
-			$sql = "SELECT * FROM cars WHERE car_type='$carType'";
+			$sql = "SELECT * FROM cars WHERE car_type='$carType' AND  $whereClause";
 		}
 		$stmt = $this->connect()->query($sql);
 		return $stmt;

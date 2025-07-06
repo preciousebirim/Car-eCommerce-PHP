@@ -21,5 +21,5 @@
 		unset($_POST);
 		$count = 0;
 		$total = 0;
-		header('location: /');
+		header('location: /client/');
 	}

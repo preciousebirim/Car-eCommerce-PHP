@@ -54,7 +54,7 @@ require_once __DIR__.'/../includes/client.inc.php';
 								<img src="/assets/Product_images/' . $item['image'] . '">
 								<h5 class="item-name">' . $item['model'] . '</h5>
 								<h5 class="item-name">' . $item['manufacturer'] . '</h5>
-								<h6 class="item-price">$' . $item['price'] . '</h6>
+								<h6 class="item-price">$' . $row['product_price'] . '</h6>
 								<h6 style="color: #f00000;" class="item-quantity">Quantity: ' . $row['quantity'] . '</h6>
 							</div>
 							';
@@ -69,7 +69,7 @@ require_once __DIR__.'/../includes/client.inc.php';
 								<img src="/assets/Car_images/' . $item['image'] . '">
 								<h5 class="item-name">' . $item['model'] . '</h5>
 								<h5 class="item-name">' . $item['manufacturer'] . '</h5>
-								<h6 class="item-price">$' . $item['price'] . '</h6>
+								<h6 class="item-price">$' . $row['product_price'] . '</h6>
 								<h6 style="color: #f00000;" class="item-quantity">Quantity: ' . $row['quantity'] . '</h6>
 							</div>
 							';

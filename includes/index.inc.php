@@ -5,6 +5,7 @@
 
 	$car = new Car();
 	$cars = $car->get_cars($_GET['type'] ?? '');
+	$carsHire = $car->get_cars($_GET['type'] ?? '', true);
 
 	$cart = new Cart();
 

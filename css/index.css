@@ -351,7 +351,7 @@ input[type='email'], input[type='password'], input[type='text']{
 /* CARS */
 .cars{
 	text-align: center;
-	min-height: 100vh;
+	/* min-height: 100vh; */
 	height: 100%;
 	width: 75%;
 	margin: 0 auto;

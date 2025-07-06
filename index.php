@@ -42,7 +42,7 @@ include 'includes/search.inc.php';
 
 
 	<section id="to-buy" class="cars">
-		<h1> TRUCKS </h1>
+		<h1> TRUCKS FOR SELL</h1>
 		<div style="position: relative; width: max-content; margin: auto; max-width: 100%;overflow-x: auto;">
 			<div style="display: flex; gap: 1rem; width: max-content;">
 				<form action='/'>
@@ -87,7 +87,7 @@ include 'includes/search.inc.php';
                                  <p>' . $row['model'] . '</p>
               				     <p>$' . $row['price'] . '</p>
             					 <form class="" action="product.php?id=' . $row['id'] . '" method="post">
-            					 	<button type="submit" name="add-to-cart-index"> Add to Cart</button>
+								    <button type="submit" name="add-to-cart-index"> View</button>
             					 </form>
             				</div>';
 						$i++;
@@ -106,7 +106,41 @@ include 'includes/search.inc.php';
 
 	</section>
 
-	<section id="to-rent" class="to-rent">
+	<section id="to-hire" class="cars">
+		<h1> TRUCKS FOR HIRE </h1>
+
+		<div class="cars-container1">
+			<div class="cars-container" style="margin-top: 30px;">
+				<?php
+				$i = 0;
+				while ($row = $carsHire->fetch_assoc()) {
+					if ($i <= 8) {
+						echo '<div class="box" data-aos="slide-up">
+            					 <div class="box-image" style="background-image: url(/assets/Car_images/' . $row['image'] . ');
+            							 background-size: cover;
+            							 background-position:center;">.
+
+            					 </div>
+            					 <p>' . $row['manufacturer'] . '</p>
+                                 <p>' . $row['model'] . '</p>
+              				     <p>$' . $row['hire_price'] . ' each day</p>
+            					 <form class="" action="product.php?id=' . $row['id'] . '&hire=" method="post">
+            					 	<button type="submit" name="add-to-cart-index"> View</button>
+            					 </form>
+            				</div>';
+						$i++;
+					} else {
+						break;
+					}
+				}
+				?>
+			</div>
+			<div class="more">
+				<a class="more-btn" href="more.php?type=<?php echo urlencode($_GET['type'] ?? '') ?>&hire"><i
+						class="fas fa-angle-double-right"><span>More</span>
+					</i></a>
+			</div>
+		</div>
 
 	</section>
 

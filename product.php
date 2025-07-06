@@ -36,7 +36,7 @@
         				</div>
         				<div class="image">
         					<div class="pro-info">
-        						<h3>'.$row['manufacturer'].' '.$row['model'].'</h3>
+        						<h3>'.$row['manufacturer'].' '.$row['model'].'</h3><br>
         						<h5>$'.$row['price'].'</h5>
         						<br>
         						<h3>Condition:</h3>
@@ -55,6 +55,14 @@
         		</div>';
                 }
                 else{
+					$price = $row['price'];
+					$forHireInput = '';
+					$daysInput = '';
+					if($row['hire_price'] > 0 && isset($_GET['hire'])){
+						$price = $row['hire_price']. ' each day';
+						$forHireInput = '<input type="hidden" name="is_hire" value="">';
+						$daysInput = '<h6>Days</h6><p><input type="number" name="days" value = "1" min= "1"></p>';
+					}
                     echo '<div class="product">
         				<div class="info">
         					<div class="img">
@@ -69,14 +77,17 @@
         				</div>
         				<div class="image">
         					<div class="pro-info">
-        						<h3>'.$row['manufacturer'].' '.$row['model'].'</h3>
-        						<h5>$'.$row['price'].'</h5>
+        						<h3>'.$row['manufacturer'].' '.$row['model'].'</h3><br>
+        						<h5>$'.$price.'</h5>
         						<br>
         						<h3>Condition:</h3>
         						<p>'.$row['condition'].'</p>
         						<form action="product.php?id='.$row['id'].'" method="post">
 								  <input type="hidden" name="id" value="'.$row['id'].'">
+								  '.$forHireInput.'
+								  <h6>Quantity</h6>
 								  <p><input type="number" name="quantity" value = "1" min= "1"></p>
+								  '.$daysInput.'
         						   <button class="add-to-cart" type="submit" name="add-to-cart"> Add to Cart</button>
         						   <button type="button" class="call"><i class="fas fa-phone"></i></button>
         						   <button type="button" class="mail"><i class="fas fa-envelope"></i></button>
