@@ -9,6 +9,13 @@
 			$stmt = $this->connect()->query($sql);
 			return $stmt;
 		}
+
+		public function get_marketer_clients($id=""){
+			$sql = "SELECT * FROM users WHERE marketer ='$id';";
+			$stmt = $this->connect()->query($sql);
+			return $stmt;
+		}
+
 		public function upsertMarketer($name, $email, $showing, $id=""){
 			if($id == ""){
 				$id = uniqid();

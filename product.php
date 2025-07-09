@@ -14,6 +14,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="css/product.css">
 		<title>AVIDHAUL TRUCKERS | product</title>
+		<link rel="shortcut icon" href="/favicon.png" type="image/png">
 	</head>
 	<body>
 		<div class="container">
@@ -44,6 +45,7 @@
         						<form action="product.php?product_id='.$row['id'].'" method="post">
 								  <input type="hidden" name="id" value="'.$row['id'].'">
 								  <input type="hidden" name="sparepart" value="1">
+								  <h6>Quantity</h6>
 								   <p><input type="number" name="quantity" value = "1" min= "1"></p>
         						   <button class="add-to-cart" type="submit" name="add-to-cart"> Add to Cart</button>
         						   <button type="button" class="call"><i class="fas fa-phone"></i></button>

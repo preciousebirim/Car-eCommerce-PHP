@@ -49,7 +49,8 @@
 				$isSparePart = $row['is_sparepart'];
 				$isHire = $row['is_hire'];
 				$quantity = $row['quantity'];
-				$sql = "INSERT INTO `order_items` SET `order_id`='$order_id', `product_id`='$productId', `is_sparepart`= $isSparePart, is_hire = $isHire, quantity = $quantity;";
+				$price = $row['product_price'];
+				$sql = "INSERT INTO `order_items` SET `order_id`='$order_id', `product_id`='$productId', `is_sparepart`= $isSparePart, is_hire = $isHire, price = $price, quantity = $quantity;";
 				$this->connect()->query($sql);
 			}
 		}

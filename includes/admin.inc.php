@@ -1,6 +1,12 @@
 <?php
 	require_once __DIR__.'/../includes/autoloader.inc.php';
 
+	if(!(isset($_SESSION['admin']) && $_SESSION['admin'] == 1)){
+		header("Location: /client/");
+		exit();
+
+	}
+
 	$car = new Car();
 	$cars = $car->get_car();
 
@@ -25,6 +31,11 @@
 	if(isset($_GET['order_id'])){
 		$order_items = $order->get_items($_GET['order_id']);
 		$order_id = $_GET['order_id'];
+	}
+
+	if(isset($_POST['order_user_id'])){
+		$order_user_items = $order->get_user_orders($_POST['order_user_id']);
+		$order_user_id = $_POST['order_user_id'];
 	}
 
 	if(isset($_GET['del_id'])){

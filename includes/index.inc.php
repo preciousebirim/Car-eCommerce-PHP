@@ -43,7 +43,7 @@
 	if(isset($_POST['logout-submit'])){
 		session_unset();
 		session_destroy();
-		header("Location: index.php");
+		header("Location: /");
 	}
 	if(isset($_POST['signup-submit'])){
 		$error = $user->insert_user($_POST['username'], $_POST['email'], $_POST['password'], $_POST['re-password'], $_POST['marketer'] ?? '');

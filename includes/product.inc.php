@@ -20,9 +20,10 @@ if (isset($_POST['add-to-cart'])) {
 	$isSparePart = isset($_POST['sparepart']) ? 1 : 0;
 	$isHire = isset($_POST['is_hire']) ? 1 : 0;
 	$days = isset($_POST['days']) ? ((int) $_POST['days'] ): 1;
-	$price =$isHire ? $row['price'] * $days : $row['price'];
-	
-	$cart->add_to_cart($row['id'], $row['manufacturer'], $price, $_SESSION['id'], $_SESSION['username'], $row['model'], $_SESSION['email'], $row['image'], $_POST['quantity'], $isHire, $isSparePart);
+	$price =$isHire ? $row['hire_price'] * $days : $row['price'];
+
+
+    $cart->add_to_cart($row['id'], $row['manufacturer'], $price, $_SESSION['id'], $_SESSION['username'], $row['model'], $_SESSION['email'], $row['image'], $_POST['quantity'], $isHire, $isSparePart);
 	$_SESSION['cart'] = ($cart->get_cart($_SESSION['id']))->num_rows;
 	header("Location: index.php");
 	exit();

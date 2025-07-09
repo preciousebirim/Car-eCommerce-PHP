@@ -20,13 +20,13 @@ require_once __DIR__.'/../includes/client.inc.php';
 		</div>
 		<nav>
 			<h3>ORDERS</h3>
-			<h3>HIRE REQUEST</h3>
-            <?php
+			<?php
             if ($_SESSION['admin'] == 1) {
                 echo '<a href="/admin" style="color: #000; text-decoration: none;"><h3><i class="fas fa-door-open"></i> ADMIN PORTAL</h3></a>';
             }
-
-?>
+			?>
+			<a href="/logout.php" style="color: #000; text-decoration: none;"><h3><i class="fas fa-sign-out-alt"></i> LOG OUT</h3></a>
+            
 		</nav>
 	</header> <br>
 	<?php

@@ -12,6 +12,7 @@ include 'includes/search.inc.php';
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="stylesheet" href="/css/index.css">
 	<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+	<link rel="shortcut icon" href="/favicon.png" type="image/png">
 	<title> AVIDHAUL TRUCKERS | home</title>
 </head>
 
@@ -34,7 +35,7 @@ include 'includes/search.inc.php';
 					<li class="to-buy">BUY</li>
 					<li class="to-rent">HIRE</li>
 					<li class="to-spare">SPARE PARTS</li>
-					<li class="to-login">LOGIN</li>
+					<?php echo isset($_SESSION['id']) ? '<li onclick="location.href=\'/client\'">MY ACCOUNT</li>' :'<li class="to-login">LOGIN</li>'; ?>
 				</ul>
 			</nav>
 		</header>
@@ -147,7 +148,7 @@ include 'includes/search.inc.php';
 	<div class="products-heading">
 		<h1>SPARE PARTS</h1>
 	</div>
-	<section id="to-spare" class="products">
+	<section id="to-spare" class="products" style="width; 100%;">
 		<div class="product-container">
 			<?php
 			while ($row = $products->fetch_assoc()) {
@@ -169,7 +170,7 @@ include 'includes/search.inc.php';
 		<i id="next-product" class="fas fa-chevron-circle-right"></i>
 	</div>
 
-
+    <?php if(!isset($_SESSION['id'])) { ?>
 	<section id="to-login" style="position: relative; padding: 30px 0; height: max-content; max-height: 800px; "
 		class="showcase">
 		<div class="showcase-text" data-aos="slide-up">
@@ -237,7 +238,7 @@ include 'includes/search.inc.php';
 			</div>
 		</div>
 	</section>
-
+<?php }?>
 
 
 	<section class="my-thoughts">

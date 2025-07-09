@@ -1,6 +1,11 @@
 <?php
 	require_once __DIR__.'/../includes/autoloader.inc.php';
 
+	if(!isset($_SESSION['id'])){
+		header("Location: /");
+		exit();
+	}
+
 	$order = new Order();
 	$orders = $order->get_user_orders($_SESSION['id']);
     

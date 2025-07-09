@@ -80,7 +80,7 @@ INSERT INTO `cars` VALUES
 (48,'Lambougini','Huracan 2017',67000,'500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with','01863987793','toma@gmail.com','220','37','OK','Patrol','12000','Auto','Carhuracan.jpg','Sports',0,1,0,NULL,1),
 (49,'Laxus','LC V4 turbo 2014',22500,'500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with','01863987793','molly@gmail.com','200','50','Need change','Octen  ','20000','Auto','CarLexus_LC.jpg','Sports',0,1,0,NULL,1),
 (50,'Tesla','Model S 2015',20001,'Tarunno ince the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised','01863987793','toma@gmail.com','250','50','OK','Electric ','20000','Auto','CarteslaModelS.jpg','Regular',0,1,0,NULL,1),
-(53,'HOWO','Sino truck',2000,'New','','','100','35355','Good','Diesel','2000','Manual','CarHowo-340-6X4-2.jpg','TRUCK',100,1,0,1000,1);
+(53,'HOWO','Sino truck',2000,'New','','','100','35355','Good','Diesel','2000','Manual','CarHowo-340-6X4-2.jpg','TRUCK',100,1,1,1000,1);
 /*!40000 ALTER TABLE `cars` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -103,10 +103,11 @@ CREATE TABLE `cart` (
   `product_image` varchar(256) NOT NULL,
   `is_sparepart` tinyint(1) NOT NULL DEFAULT 0,
   `quantity` int(11) NOT NULL DEFAULT 1,
+  `is_hire` tinyint(1) NOT NULL DEFAULT 0,
   PRIMARY KEY (`id`),
   KEY `cart_ibfk_1` (`user_id`),
   CONSTRAINT `cart_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=61 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=71 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -226,12 +227,13 @@ CREATE TABLE `order_items` (
   `is_sparepart` tinyint(1) NOT NULL DEFAULT 0,
   `quantity` int(10) unsigned NOT NULL,
   `is_hire` tinyint(4) NOT NULL DEFAULT 0,
+  `price` decimal(10,0) NOT NULL DEFAULT 0,
   PRIMARY KEY (`id`),
   KEY `order_items_ibfk_2` (`order_id`),
   KEY `order_items_ibfk_3` (`product_id`),
   KEY `product_id2` (`is_sparepart`),
   CONSTRAINT `order_items_ibfk_2` FOREIGN KEY (`order_id`) REFERENCES `orders` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -241,8 +243,7 @@ CREATE TABLE `order_items` (
 LOCK TABLES `order_items` WRITE;
 /*!40000 ALTER TABLE `order_items` DISABLE KEYS */;
 INSERT INTO `order_items` VALUES
-(1,1,26,0,1,0),
-(2,1,10,1,1,0);
+(1,1,53,0,1,1,1000);
 /*!40000 ALTER TABLE `order_items` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -274,7 +275,7 @@ CREATE TABLE `orders` (
 LOCK TABLES `orders` WRITE;
 /*!40000 ALTER TABLE `orders` DISABLE KEYS */;
 INSERT INTO `orders` VALUES
-(1,4,'71, Preah Monivong Blvd., Sangkat Srah Chork, Penh, Phnom','Newark','3698753910','78654','2025-07-01 12:11:32');
+(1,4,'270 Park Avenue, New York,NY 10017 USA','NY','7742357999','95432','2025-07-07 13:15:11');
 /*!40000 ALTER TABLE `orders` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -362,4 +363,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*M!100616 SET NOTE_VERBOSITY=@OLD_NOTE_VERBOSITY */;
 
--- Dump completed on 2025-07-01 15:58:45
+-- Dump completed on 2025-07-07 17:34:16

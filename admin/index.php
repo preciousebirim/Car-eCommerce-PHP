@@ -43,7 +43,7 @@ require_once __DIR__.'/../includes/admin.inc.php';
 		<div class="container">
 			<div class="orders-flex-box">
 				<div class="orders-table">
-					<h1>Current orders</h1>
+					<h1><?php echo isset($order_user_id) ? 'User' : 'All'; ?> orders</h1>
 					<table>
 						<thead>
 							<th>id</th>
@@ -54,7 +54,8 @@ require_once __DIR__.'/../includes/admin.inc.php';
 						<tbody>
 							<?php
 							$i = 1;
-							while ($row = $orders->fetch_assoc()) {
+							$o = isset($order_user_id) ? $order_user_items : $orders;
+							while ($row = $o->fetch_assoc()) {
 								echo '<tr>
     									<td>' . $i . '</td>
     									<td>' . $row["user_id"] . '</td>
@@ -128,7 +129,7 @@ require_once __DIR__.'/../includes/admin.inc.php';
 							<th>id</th>
 							<th>name</th>
 							<th>email</th>
-							<th>Showing</th>
+							<th>View</th>
 							<th>Delete</th>
 						</thead>
 						<tbody>
@@ -139,15 +140,10 @@ require_once __DIR__.'/../includes/admin.inc.php';
                                             <td>' . $row['name'] . '</td>
                                             <td>' . $row['email'] . '</td>
                                             <td id="show-hide-table">';
-								if ($row['showing'] == 1) {
-									echo '<form action="admin.php?marketer_show=' . $row['id'] . '" method="post">
-                                                        <button class="story-btn" type="submit" name="marketer-show-submit"><i style="text-align: center; color: #0ac910;" class="fas fa-check"></i></button>
-                                                    </form>';
-								} else {
-									echo '<form action="admin.php?marketer_show=' . $row['id'] . '" method="post" >
-                                                        <button class="story-btn" type="submit" name="marketer-show-submit"><i style="text-align: center; color: #db3737;" class="fas fa-times"></i></button>
-                                                    </form>';
-								}
+								echo '<a href="./marketer.php?id=' . $row['id'] . '">
+                                                        <button class="story-btn" type="button" ><i style="text-align: center; color: #0ac910;" class="fas fa-check"></i></button>
+                                                    </a>';
+								
 								echo '</td>
                                             <td>
                                                 <form action="admin.php?delete_marketer=' . $row['id'] . '" method="post">
@@ -560,6 +556,18 @@ require_once __DIR__.'/../includes/admin.inc.php';
 		</div>
 	</footer>
 	<script type="text/javascript" src="/javaScript/admin.js"></script>
+	<script type="text/javascript" src="/javaScript/story.js"></script>
+	<?php
+	if (isset($_POST['tab'])) {
+		echo "<script>
+		const tabS = document.querySelectorAll('nav h3');
+			tabS[".$_POST['tab']."]?.click();
+			</script>";
+
+	}
+
+
+	?>
 </body>
 
 </html>
